@@ -12,8 +12,15 @@ function App() {
   const [inputDescricao, setInputDescricao] = useState('')
 
   const handleBotaoAdicionar = () => {
-    setTasks(prevTasks => [...prevTasks, {titulo: inputTitulo, descricao: inputDescricao}])
-    limparCampos()
+    let inputTituloLimpo = inputTitulo.trim()
+    let inputDescricaoLimpo = inputDescricao.trim()
+
+    if(inputTituloLimpo !== '') {
+      setTasks(prevTasks => [...prevTasks, {titulo: inputTituloLimpo, descricao: inputDescricaoLimpo}])
+      limparCampos()
+    } else {
+      alert("O campo título não pode estar vazio!")
+    }
   }
 
   const limparCampos = () => {
@@ -32,12 +39,10 @@ function App() {
           <label>Título: </label>
           <input type='text' placeholder='Título da tarefa' onChange={event => setInputTitulo(event.target.value)} value={inputTitulo}/>
         </div>
-        <br/>
         <div>
           <label>Descrição: </label>
           <input type='text' placeholder='Descricao da tarefa' onChange={event => setInputDescricao(event.target.value)} value={inputDescricao}/>
         </div>
-        <br/>
         <button onClick={() => handleBotaoAdicionar()}>Adicionar</button>
         <button onClick={() => limparCampos()}>Limpar</button>
       </div>

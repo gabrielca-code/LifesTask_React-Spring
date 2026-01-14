@@ -21,6 +21,10 @@ function App() {
     setInputDescricao('')
   }
 
+  const handleBotaoRemover = (itemRemovido) => {
+    setTasks(tasks.filter(remover => remover.titulo !== itemRemovido))
+  }
+
   return (
     <>
       <div>
@@ -40,7 +44,10 @@ function App() {
 
       <div>
         {tasks?.map(task => (
-          <TaskItem titulo={task.titulo} descricao={task.descricao}/>
+          <div>
+            <TaskItem titulo={task.titulo} descricao={task.descricao}/>
+            <button onClick={() => handleBotaoRemover(task.titulo)}>Remover</button>
+          </div>
         ))}
         
       </div>

@@ -13,16 +13,29 @@ function App() {
 
   const handleBotaoAdicionar = () => {
     setTasks(prevTasks => [...prevTasks, {titulo: inputTitulo, descricao: inputDescricao}])
+    limparCampos()
+  }
+
+  const limparCampos = () => {
+    setInputTitulo('')
+    setInputDescricao('')
   }
 
   return (
     <>
       <div>
-        <input type='text' placeholder='Título da tarefa' onChange={event => setInputTitulo(event.target.value)}/>
+        <div>
+          <label>Título: </label>
+          <input type='text' placeholder='Título da tarefa' onChange={event => setInputTitulo(event.target.value)} value={inputTitulo}/>
+        </div>
         <br/>
-        <input type='text' placeholder='Descricao da tarefa' onChange={event => setInputDescricao(event.target.value)}/>
+        <div>
+          <label>Descrição: </label>
+          <input type='text' placeholder='Descricao da tarefa' onChange={event => setInputDescricao(event.target.value)} value={inputDescricao}/>
+        </div>
         <br/>
         <button onClick={() => handleBotaoAdicionar()}>Adicionar</button>
+        <button onClick={() => limparCampos()}>Limpar</button>
       </div>
 
       <div>

@@ -1,14 +1,32 @@
-//import { useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import TaskItem from './components/TaskItem'
 
 function App() {
+  const [tasks, setTasks] = useState([{
+    titulo: "teste1",
+    descricao: "descricao1"
+  }, {
+    titulo: "teste2",
+    descricao: "descricao2"
+  }])
 
   return (
     <>
-      <TaskItem titulo="task 1" descricao="descricao 1"/>
-      <TaskItem titulo="task 2" descricao="descricao 2"/>
-      <TaskItem titulo="task 3" descricao="descricao 3"/>
+      <div>
+        <input type='text' placeholder='Título da tarefa'/>
+        <br/>
+        <input type='text' placeholder='Descricao da tarefa'/>
+        <br/>
+        <button>Adicionar</button>
+      </div>
+
+      <div>
+        {tasks.map(task => (
+          <TaskItem titulo={task.titulo} descricao={task.descricao}/>
+        ))}
+        
+      </div>
     </>
   )
 }

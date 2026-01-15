@@ -8,8 +8,11 @@ function App() {
     {titulo: "título 2", descricao: "descricao 2"}
   ])
 
+  const categorias = ["Estudo", "Finanças", "Rotina", "Saúde"]
+
   const [inputTitulo, setInputTitulo] = useState('')
   const [inputDescricao, setInputDescricao] = useState('')
+  const [inputCategoria, setInputCategoria] = useState(categorias[0])
 
   const handleBotaoAdicionar = () => {
     let inputTituloLimpo = inputTitulo.trim()
@@ -37,11 +40,20 @@ function App() {
       <div>
         <div>
           <label>Título: </label>
-          <input type='text' placeholder='Título da tarefa' onChange={event => setInputTitulo(event.target.value)} value={inputTitulo}/>
+          <input type='text' placeholder='Título da tarefa' onChange={event => setInputTitulo(event.target.value)} value={inputTitulo} name='titulo'/>
         </div>
         <div>
           <label>Descrição: </label>
-          <input type='text' placeholder='Descricao da tarefa' onChange={event => setInputDescricao(event.target.value)} value={inputDescricao}/>
+          <input type='text' placeholder='Descricao da tarefa' onChange={event => setInputDescricao(event.target.value)} value={inputDescricao} name='descricao'/>
+        </div>
+        <div>
+          <label>Categoria: </label>
+          <select name="categoria" id="categoria" onChange={event => setInputCategoria(event.target.value)}>
+            <option value="saude">Saúde</option>
+            <option value="saude">Estudo</option>
+            <option value="saude">Financeiro</option>
+            <option value="saude">Rotina</option>
+          </select>
         </div>
         <button onClick={() => handleBotaoAdicionar()}>Adicionar</button>
         <button onClick={() => limparCampos()}>Limpar</button>

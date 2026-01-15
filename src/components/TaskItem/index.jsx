@@ -1,9 +1,10 @@
 import React from 'react'
 
-const TaskItem = ({titulo, descricao}) => {
+const TaskItem = ({titulo, descricao, categoria}) => {
   return (
     <div>
-      <h4>{titulo}</h4>
+      <h3>{titulo}</h3>
+      <h4>{categoria}</h4>
       <p>{descricao}</p>
     </div>
   )

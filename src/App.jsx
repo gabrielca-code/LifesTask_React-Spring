@@ -4,8 +4,8 @@ import TaskItem from './components/TaskItem'
 
 function App() {
   const [tasks, setTasks] = useState([
-    {titulo: "título 1", descricao: "descricao 1"},
-    {titulo: "título 2", descricao: "descricao 2"}
+    {titulo: "título 1", descricao: "descricao 1", categoria: "Estudo"},
+    {titulo: "título 2", descricao: "descricao 2", categoria: "Saúde"}
   ])
 
   const categorias = ["Estudo", "Finanças", "Rotina", "Saúde"]
@@ -18,8 +18,8 @@ function App() {
     let inputTituloLimpo = inputTitulo.trim()
     let inputDescricaoLimpo = inputDescricao.trim()
 
-    if(inputTituloLimpo !== '') {
-      setTasks(prevTasks => [...prevTasks, {titulo: inputTituloLimpo, descricao: inputDescricaoLimpo}])
+    if(inputTituloLimpo !== '' && inputCategoria !== '') {
+      setTasks(prevTasks => [...prevTasks, {titulo: inputTituloLimpo, descricao: inputDescricaoLimpo, categoria: inputCategoria}])
       limparCampos()
     } else {
       alert("O campo título não pode estar vazio!")
@@ -49,10 +49,9 @@ function App() {
         <div>
           <label>Categoria: </label>
           <select name="categoria" id="categoria" onChange={event => setInputCategoria(event.target.value)}>
-            <option value="saude">Saúde</option>
-            <option value="saude">Estudo</option>
-            <option value="saude">Financeiro</option>
-            <option value="saude">Rotina</option>
+            {categorias?.map(categoria => (
+              <option value={categoria}>{categoria}</option>
+            ))}
           </select>
         </div>
         <button onClick={() => handleBotaoAdicionar()}>Adicionar</button>
@@ -62,7 +61,7 @@ function App() {
       <div>
         {tasks?.map(task => (
           <div>
-            <TaskItem titulo={task.titulo} descricao={task.descricao}/>
+            <TaskItem titulo={task.titulo} descricao={task.descricao} categoria={task.categoria}/>
             <button onClick={() => handleBotaoRemover(task.titulo)}>Remover</button>
           </div>
         ))}

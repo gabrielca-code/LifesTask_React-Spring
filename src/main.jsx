@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import RootPage from './pages/root/index.jsx'
+import CadastrarPage from './pages/cadastrar/index.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/cadastrar",
-    element: <h1>Teste</h1>
+    element: <CadastrarPage/>
   }
 ]);
 

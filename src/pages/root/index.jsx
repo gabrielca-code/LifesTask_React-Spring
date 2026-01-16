@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import './App.css'
-import TaskItem from './components/TaskItem'
+import TaskItem from '../../components/TaskItem'
 
-function App() {
+function RootPage() {
   const [tasks, setTasks] = useState([
     {titulo: "título 1", descricao: "descricao 1", categoria: "Estudo"},
     {titulo: "título 2", descricao: "descricao 2", categoria: "Saúde"}
@@ -71,4 +70,4 @@ function App() {
   )
 }
 
-export default App
+export default RootPage

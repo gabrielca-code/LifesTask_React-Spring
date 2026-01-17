@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function CadastrarPage() {
   const [tasks, setTasks] = useState([
@@ -50,6 +51,7 @@ function CadastrarPage() {
         </div>
         <button onClick={() => handleBotaoAdicionar()}>Adicionar</button>
         <button onClick={() => limparCampos()}>Limpar</button>
+        <Link to="/">Voltar</Link>
       </div>
     </>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Home = () => {
+const Login = () => {
   return (
     <div>
       <div>
@@ -12,9 +12,10 @@ const Home = () => {
             <label htmlFor="senha">Senha: </label>
             <input type='password' name='senha' placeholder='Informe sua senha' />
         </div>
+        <button>Entrar</button>
       </div>
     </div>
   )
 }
 
-export default Home;
+export default Login;

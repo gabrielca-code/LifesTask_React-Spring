@@ -1,16 +1,15 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import CadastrarPage from './pages/cadastrar';
 import RootPage from './pages/root';
 
 function App() {
   return (
     <Router>
-        <Switch>
-            <Route path=''>
-
-            </Route>
-        </Switch>
+        <Routes>
+            <Route path='/' element={<RootPage/>} />
+            <Route path='/cadastrar' element={<CadastrarPage/>} />                
+        </Routes>
     </Router>
   )
 }

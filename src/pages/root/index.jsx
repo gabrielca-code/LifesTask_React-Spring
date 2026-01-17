@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import TaskItem from '../../components/TaskItem'
+import { Link } from 'react-router-dom'
 
 function RootPage() {
   const [tasks, setTasks] = useState([
@@ -55,6 +56,7 @@ function RootPage() {
         </div>
         <button onClick={() => handleBotaoAdicionar()}>Adicionar</button>
         <button onClick={() => limparCampos()}>Limpar</button>
+        <Link to="/cadastrar">Nova tarefa</Link>
       </div>
 
       <div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -12,7 +13,7 @@ const Login = () => {
             <label htmlFor="senha">Senha: </label>
             <input type='password' name='senha' placeholder='Informe sua senha' />
         </div>
-        <button>Entrar</button>
+        <Link to="/inicial">Entrar</Link>
       </div>
     </div>
   )

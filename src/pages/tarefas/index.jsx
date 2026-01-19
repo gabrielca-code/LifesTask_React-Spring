@@ -36,39 +36,41 @@ function RootPage() {
   }
 
   return (
-    <>
-      <div>
-        <div>
-          <label>Título: </label>
-          <input type='text' placeholder='Título da tarefa' onChange={event => setInputTitulo(event.target.value)} value={inputTitulo} name='titulo'/>
-        </div>
-        <div>
-          <label>Descrição: </label>
-          <input type='text' placeholder='Descricao da tarefa' onChange={event => setInputDescricao(event.target.value)} value={inputDescricao} name='descricao'/>
-        </div>
-        <div>
-          <label>Categoria: </label>
-          <select name="categoria" id="categoria" onChange={event => setInputCategoria(event.target.value)}>
-            {categorias?.map(categoria => (
-              <option value={categoria}>{categoria}</option>
-            ))}
-          </select>
-        </div>
-        <button class="btn btn-primary" onClick={() => handleBotaoAdicionar()}>Adicionar</button>
-        <button class="btn btn-danger m-2" onClick={() => limparCampos()}>Limpar</button>
-        <Link class="btn btn-success" to="/cadastrar">Nova tarefa</Link>
-      </div>
-
-      <div>
-        {tasks?.map(task => (
+    <div class="container d-flex justify-content-center">
+      <div class="column">
+        <div class="">
           <div>
-            <TaskItem titulo={task.titulo} descricao={task.descricao} categoria={task.categoria}/>
-            <button onClick={() => handleBotaoRemover(task.titulo)}>Remover</button>
+            <label>Título: </label>
+            <input type='text' placeholder='Título da tarefa' onChange={event => setInputTitulo(event.target.value)} value={inputTitulo} name='titulo'/>
           </div>
-        ))}
-        
+          <div>
+            <label>Descrição: </label>
+            <input type='text' placeholder='Descricao da tarefa' onChange={event => setInputDescricao(event.target.value)} value={inputDescricao} name='descricao'/>
+          </div>
+          <div>
+            <label>Categoria: </label>
+            <select name="categoria" id="categoria" onChange={event => setInputCategoria(event.target.value)}>
+              {categorias?.map(categoria => (
+                <option value={categoria}>{categoria}</option>
+              ))}
+            </select>
+          </div>
+          <button class="btn btn-primary" onClick={() => handleBotaoAdicionar()}>Adicionar</button>
+          <button class="btn btn-danger m-2" onClick={() => limparCampos()}>Limpar</button>
+          <Link class="btn btn-success" to="/cadastrar">Nova tarefa</Link>
+        </div>
+
+        <div>
+          {tasks?.map(task => (
+            <div>
+              <TaskItem titulo={task.titulo} descricao={task.descricao} categoria={task.categoria}/>
+              <button onClick={() => handleBotaoRemover(task.titulo)}>Remover</button>
+            </div>
+          ))}
+          
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

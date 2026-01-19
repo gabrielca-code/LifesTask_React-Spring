@@ -54,9 +54,9 @@ function RootPage() {
             ))}
           </select>
         </div>
-        <button onClick={() => handleBotaoAdicionar()}>Adicionar</button>
-        <button onClick={() => limparCampos()}>Limpar</button>
-        <Link to="/cadastrar">Nova tarefa</Link>
+        <button class="btn btn-primary" onClick={() => handleBotaoAdicionar()}>Adicionar</button>
+        <button class="btn btn-danger m-2" onClick={() => limparCampos()}>Limpar</button>
+        <Link class="btn btn-success" to="/cadastrar">Nova tarefa</Link>
       </div>
 
       <div>

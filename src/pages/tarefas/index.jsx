@@ -36,18 +36,18 @@ function RootPage() {
   }
 
   return (
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex justify-content-center pt-5">
       <div class="column">
-        <div class="">
-          <div>
+        <div>
+          <div class="d-flex justify-content-between">
             <label>Título: </label>
             <input type='text' placeholder='Título da tarefa' onChange={event => setInputTitulo(event.target.value)} value={inputTitulo} name='titulo'/>
           </div>
-          <div>
+          <div class="d-flex justify-content-between">
             <label>Descrição: </label>
             <input type='text' placeholder='Descricao da tarefa' onChange={event => setInputDescricao(event.target.value)} value={inputDescricao} name='descricao'/>
           </div>
-          <div>
+          <div class="d-flex justify-content-between">
             <label>Categoria: </label>
             <select name="categoria" id="categoria" onChange={event => setInputCategoria(event.target.value)}>
               {categorias?.map(categoria => (
@@ -56,7 +56,7 @@ function RootPage() {
             </select>
           </div>
           <button class="btn btn-primary" onClick={() => handleBotaoAdicionar()}>Adicionar</button>
-          <button class="btn btn-danger m-2" onClick={() => limparCampos()}>Limpar</button>
+          <button class="btn btn-danger" onClick={() => limparCampos()}>Limpar</button>
           <Link class="btn btn-success" to="/cadastrar">Nova tarefa</Link>
         </div>
 

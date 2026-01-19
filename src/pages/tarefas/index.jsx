@@ -66,7 +66,7 @@ function RootPage() {
           {tasks?.map(task => (
             <div>
               <TaskItem titulo={task.titulo} descricao={task.descricao} categoria={task.categoria}/>
-              <button onClick={() => handleBotaoRemover(task.titulo)}>Remover</button>
+              <button class="btn btn-danger" onClick={() => handleBotaoRemover(task.titulo)}>Remover</button>
             </div>
           ))}
           

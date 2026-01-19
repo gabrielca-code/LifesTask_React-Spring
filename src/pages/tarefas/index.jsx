@@ -55,9 +55,11 @@ function RootPage() {
               ))}
             </select>
           </div>
-          <button class="btn btn-primary" onClick={() => handleBotaoAdicionar()}>Adicionar</button>
-          <button class="btn btn-danger" onClick={() => limparCampos()}>Limpar</button>
-          <Link class="btn btn-success" to="/cadastrar">Nova tarefa</Link>
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-primary m-2" onClick={() => handleBotaoAdicionar()}>Adicionar</button>
+            <button class="btn btn-danger m-2" onClick={() => limparCampos()}>Limpar</button>
+            <Link class="btn btn-success m-2" to="/cadastrar">Nova tarefa</Link>
+          </div>
         </div>
 
         <div>

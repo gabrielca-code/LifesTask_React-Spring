@@ -1,12 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function CadastrarPage() {
-  const [tasks, setTasks] = useState([
-    {titulo: "título 1", descricao: "descricao 1", categoria: "Estudo"},
-    {titulo: "título 2", descricao: "descricao 2", categoria: "Saúde"}
-  ])
-
+function CadastrarPage({adicionar}) {
   const categorias = ["Estudo", "Finanças", "Rotina", "Saúde"]
 
   const [inputTitulo, setInputTitulo] = useState('')
@@ -18,7 +13,7 @@ function CadastrarPage() {
     let inputDescricaoLimpo = inputDescricao.trim()
 
     if(inputTituloLimpo !== '' && inputCategoria !== '') {
-      setTasks(prevTasks => [...prevTasks, {titulo: inputTituloLimpo, descricao: inputDescricaoLimpo, categoria: inputCategoria}])
+      adicionar(prevTasks => [...prevTasks, {titulo: inputTituloLimpo, descricao: inputDescricaoLimpo, categoria: inputCategoria}])
       limparCampos()
     } else {
       alert("O campo título não pode estar vazio!")

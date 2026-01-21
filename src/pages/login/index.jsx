@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+  const [inputLogin, setInputLogin] = useState('')
+  const [inputSenha, setInputSenha] = useState('')
+
   return (
     <div class="container d-flex justify-content-center">
       <div class="column">

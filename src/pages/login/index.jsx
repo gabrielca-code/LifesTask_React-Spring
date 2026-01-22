@@ -7,7 +7,9 @@ const Login = () => {
 
   function logar() {
     if(inputLogin === '') {
-      alert("Informe o login do do usuário")
+      alert("Informe o login do usuário")
+    } else if (inputSenha === '') {
+      alert("Informe a senha do usuário")
     }
   }
 

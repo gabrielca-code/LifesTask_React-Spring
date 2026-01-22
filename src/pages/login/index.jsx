@@ -13,7 +13,11 @@ const Login = () => {
     } else if (inputSenha === '') {
       alert("Informe a senha do usuário")
     } else {
-      navigate('/inicial')
+      if(inputLogin === 'admin' && inputSenha === 'admin') {
+        navigate('/inicial')
+      } else {
+        alert("Usuário não encontrado! Confira seu login e senha!")
+      }
     }
   }
 

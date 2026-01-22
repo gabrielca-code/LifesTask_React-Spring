@@ -5,6 +5,12 @@ const Login = () => {
   const [inputLogin, setInputLogin] = useState('')
   const [inputSenha, setInputSenha] = useState('')
 
+  function logar() {
+    if(inputLogin === '') {
+      alert("Informe o login do do usuário")
+    }
+  }
+
   return (
     <div class="container d-flex justify-content-center">
       <div class="column">
@@ -18,6 +24,7 @@ const Login = () => {
         </div>
         <div class="d-flex justify-content-center">
           <Link class="btn btn-primary" to="/inicial">Entrar</Link>
+          <Link class="btn btn-primary" onClick={() => logar()}>Entrar</Link>
         </div>
       </div>
     </div>

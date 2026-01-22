@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [inputLogin, setInputLogin] = useState('')
   const [inputSenha, setInputSenha] = useState('')
 
-  function logar() {
+  const navigate = useNavigate()
+
+  const logar = () => {
     if(inputLogin === '') {
       alert("Informe o login do usuário")
     } else if (inputSenha === '') {
       alert("Informe a senha do usuário")
+    } else {
+      navigate('/inicial')
     }
   }
 
@@ -25,8 +29,7 @@ const Login = () => {
             <input type='password' name='senha' placeholder='Informe sua senha' value={inputSenha} onChange={event => setInputSenha(event.target.value)}/>
         </div>
         <div class="d-flex justify-content-center">
-          <Link class="btn btn-primary" to="/inicial">Entrar</Link>
-          <Link class="btn btn-primary" onClick={() => logar()}>Entrar</Link>
+          <button class="btn btn-primary" onClick={() => logar()}>Entrar</button>
         </div>
       </div>
     </div>

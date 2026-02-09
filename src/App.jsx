@@ -9,8 +9,7 @@ import Home from './pages/home';
 
 function App() {
   const [tasks, setTasks] = useState([
-      {titulo: "título 1", descricao: "descricao 1", categoria: "Estudo"},
-      {titulo: "título 2", descricao: "descricao 2", categoria: "Saúde"}
+      {titulo: "título 1", descricao: "descricao 1", categoria: "Estudo"}
   ])
 
   return (

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import TaskItem from '../../components/TaskItem'
 import { Link } from 'react-router-dom'
 
@@ -7,11 +8,22 @@ function RootPage({tasks, remover}) {
     remover(tasks.filter(remover => remover.titulo !== itemRemovido.titulo))
   }
 
+  async function getData() {
+    const response = await fetch("http://localhost:8080/tarefa", {
+      method: "GET" })
+    const result = await response.json();
+    console.log(result.content)
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   return (
     <div class="container d-flex justify-content-center pt-5">
       <div class="column">
         <div>
-            <Link class="btn btn-success m-2" to="/cadastrar">Nova tarefa</Link>
+            <Link className="btn btn-success m-2" to="/cadastrar">Nova tarefa</Link>
         </div>
 
         <div>

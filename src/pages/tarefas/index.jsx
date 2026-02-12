@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import TaskItem from '../../components/TaskItem'
 import { Link } from 'react-router-dom'
+import { useTarefaData } from '../../hooks/useTarefaData'
 
 function RootPage({tasks, remover}) {
 
@@ -14,6 +15,8 @@ function RootPage({tasks, remover}) {
     const result = await response.json();
     console.log(result.content)
   }
+
+  const { data } = useTarefaData();
 
   useEffect(() => {
     getData()
@@ -30,6 +33,13 @@ function RootPage({tasks, remover}) {
           {tasks?.map(task => (
             <div>
               <TaskItem titulo={task.titulo} descricao={task.descricao} categoria={task.categoria}/>
+              <button class="btn btn-danger" onClick={() => handleBotaoRemover(task)}>Remover</button>
+            </div>
+          ))}
+
+          {data?.map(task => (
+            <div>
+              <TaskItem titulo={task.titulo} descricao={task.descricao} categoria="a"/>
               <button class="btn btn-danger" onClick={() => handleBotaoRemover(task)}>Remover</button>
             </div>
           ))}

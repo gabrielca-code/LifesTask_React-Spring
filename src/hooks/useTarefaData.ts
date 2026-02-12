@@ -14,6 +14,8 @@ export function useTarefaData() {
         retry: 2
     })
 
+    console.log(query)
+
     return {
         ...query,
         data: query.data?.data

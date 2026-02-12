@@ -17,6 +17,7 @@ function RootPage({tasks, remover}) {
   }
 
   const { data } = useTarefaData();
+  console.log(data)
 
   useEffect(() => {
     getData()
@@ -37,12 +38,12 @@ function RootPage({tasks, remover}) {
             </div>
           ))}
 
-          {data?.map(task => (
+          {data?.content.map(tarefaData => 
             <div>
-              <TaskItem titulo={task.titulo} descricao={task.descricao} categoria="a"/>
-              <button class="btn btn-danger" onClick={() => handleBotaoRemover(task)}>Remover</button>
+              <TaskItem titulo={tarefaData.titulo} descricao={tarefaData.descricao} categoria="a"/>
+              <button class="btn btn-danger" onClick={() => handleBotaoRemover(tarefaData)}>Remover</button>
             </div>
-          ))}
+          )}
           
         </div>
       </div>

@@ -7,7 +7,7 @@ const postData = async (data: TarefaData): AxiosPromise<any> => {
     return response
 }
 
-export function useTarefaData() {
+export function useTarefaDataMutate() {
     const queryClient = useQueryClient()
     const mutate = useMutation({
         mutationFn: postData,

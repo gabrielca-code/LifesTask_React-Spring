@@ -1,8 +1,25 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTarefaDataMutate } from '../../hooks/useTarefaDataMutate'
+import { TarefaData } from '../../interface/TarefaData'
 
 function CadastrarPage({adicionar}) {
   const categorias = ["Estudo", "Finanças", "Rotina", "Saúde"]
+
+  const { mutate } = useTarefaDataMutate()
+
+  /*
+  const submit = () => {
+    const tarefaData: TarefaData = {
+      titulo: inputTitulo,
+      descricao: inputDescricao,
+      usuario: new Object(),
+      subtarefas: [],
+      ativa: true
+    }
+    mutate(tarefaData)
+  }
+    */
 
   const [inputTitulo, setInputTitulo] = useState('')
   const [inputDescricao, setInputDescricao] = useState('')
